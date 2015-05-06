@@ -12,7 +12,6 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "husky": "^0.7.0",
     "babel-eslint": "^3.0.1",
     "eslint": "^0.20.0",
     "jscs": "^1.13.1",
