@@ -17,7 +17,7 @@
     "eslint": "^0.20.0",
     "jscs": "^1.13.1",
     "jshint": "2.7.0",
-    "jshint-stylish": "^1.0.2",
+    "jshint-stylish": "^1.0.2"
   },
   "engines": {
     "node": ">=0.12.0"
