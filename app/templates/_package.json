@@ -1,0 +1,25 @@
+{
+  "name": "package",
+  "version": "0.0.0",
+  "author": "Efremov Alexey",
+  "scripts": {
+    "test": "npm run jscs && npm run eslint",
+    "jscs": "node_modules/.bin/jscs .",
+    "eslint": "node_modules/.bin/eslint .",
+    "precommit": "npm test",
+    "prepush": "npm test",
+    "postmerge": "npm install"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "husky": "^0.7.0",
+    "babel-eslint": "^3.0.1",
+    "eslint": "^0.20.0",
+    "jscs": "^1.13.1",
+    "jshint": "2.7.0",
+    "jshint-stylish": "^1.0.2",
+  },
+  "engines": {
+    "node": ">=0.12.0"
+  }
+}
