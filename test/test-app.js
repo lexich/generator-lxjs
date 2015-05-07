@@ -26,7 +26,8 @@ describe("lxjs:app", function () {
       "index.js",
       ".jscsrc",
       "README.md",
-      "test.js"
+      "test.js",
+      "lib/.gitkeep"
     ]);
   });
 });

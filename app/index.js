@@ -3,6 +3,7 @@ var yeoman = require("yeoman-generator");
 var chalk = require("chalk");
 var yosay = require("yosay");
 var libpath = require("path");
+var simplegit = require("simple-git");
 
 module.exports = yeoman.generators.Base.extend({
   initializing: function () {
@@ -89,10 +90,15 @@ module.exports = yeoman.generators.Base.extend({
         this.templatePath("test.js"),
         this.destinationPath("test.js")
       );
+      this.directory(
+       this.templatePath("lib"), 
+       this.destinationPath("lib") 
+      );
     }
   },
 
   install: function () {
+    simplegit().init();
     this.installDependencies();
   }
 });
