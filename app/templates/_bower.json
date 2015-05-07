@@ -1,5 +1,5 @@
 {
-  "name": "package",
+  "name": "<%= props.projectname %>",
   "version": "0.0.0",
   "dependencies": {}
 }

@@ -2,6 +2,7 @@
 var yeoman = require("yeoman-generator");
 var chalk = require("chalk");
 var yosay = require("yosay");
+var libpath = require("path");
 
 module.exports = yeoman.generators.Base.extend({
   initializing: function () {
@@ -17,27 +18,26 @@ module.exports = yeoman.generators.Base.extend({
     ));
 
     var prompts = [{
-      type: "confirm",
-      name: "someOption",
-      message: "Would you like to enable this option?",
-      default: true
+      type    : "input",
+      name    : "projectname",
+      message : "Your project name",
+      default : libpath.basename(this.env.cwd)
     }];
 
     this.prompt(prompts, function (props) {
       this.props = props;
       // To access props later use this.props.someOption;
-
       done();
     }.bind(this));
   },
 
   writing: {
     app: function () {
-      this.fs.copy(
+      this.copy(
         this.templatePath("_package.json"),
         this.destinationPath("package.json")
       );
-      this.fs.copy(
+      this.copy(
         this.templatePath("_bower.json"),
         this.destinationPath("bower.json")
       );
