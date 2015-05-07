@@ -22,6 +22,11 @@ module.exports = yeoman.generators.Base.extend({
       name    : "projectname",
       message : "Your project name",
       default : libpath.basename(this.env.cwd)
+    }, {
+      type    : "input",
+      name    : "githubuser",
+      message : "Input github username",
+      default : "lexich"
     }];
 
     this.prompt(prompts, function (props) {
@@ -44,6 +49,18 @@ module.exports = yeoman.generators.Base.extend({
     },
 
     projectfiles: function () {
+      this.copy(
+        this.templatePath("_gitignore"),
+        this.destinationPath(".gitignore")
+      );
+      this.copy(
+        this.templatePath("_travis.yml"),
+        this.destinationPath(".travis.yml")
+      );
+      this.copy(
+        this.templatePath("appveyor.yml"),
+        this.destinationPath("appveyor.yml")
+      );
       this.fs.copy(
         this.templatePath("editorconfig"),
         this.destinationPath(".editorconfig")
@@ -53,12 +70,24 @@ module.exports = yeoman.generators.Base.extend({
         this.destinationPath(".eslintrc")
       );
       this.fs.copy(
+        this.templatePath("gulpfile.js"),
+        this.destinationPath("gulpfile.js")
+      );
+      this.fs.copy(
         this.templatePath("jscsrc"),
         this.destinationPath(".jscsrc")
       );
       this.fs.copy(
         this.templatePath("index.js"),
         this.destinationPath("index.js")
+      );
+      this.copy(
+        this.templatePath("README.md"),
+        this.destinationPath("README.md")
+      );
+      this.fs.copy(
+        this.templatePath("test.js"),
+        this.destinationPath("test.js")
       );
     }
   },

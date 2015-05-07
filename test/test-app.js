@@ -16,11 +16,17 @@ describe("lxjs:app", function () {
   it("creates files", function () {
     assert.file([
       "bower.json",
+      ".gitignore",
       "package.json",
+      ".travis.yml",
+      "appveyor.yml",
       ".editorconfig",
       ".eslintrc",
+      "gulpfile.js",
       "index.js",
-      ".jscsrc"
+      ".jscsrc",
+      "README.md",
+      "test.js"
     ]);
   });
 });
