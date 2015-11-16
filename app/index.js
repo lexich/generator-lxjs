@@ -58,10 +58,6 @@ module.exports = yeoman.generators.Base.extend({
         this.templatePath("_travis.yml"),
         this.destinationPath(".travis.yml")
       );
-      this.copy(
-        this.templatePath("appveyor.yml"),
-        this.destinationPath("appveyor.yml")
-      );
       this.fs.copy(
         this.templatePath("editorconfig"),
         this.destinationPath(".editorconfig")
@@ -69,10 +65,6 @@ module.exports = yeoman.generators.Base.extend({
       this.fs.copy(
         this.templatePath("eslintrc"),
         this.destinationPath(".eslintrc")
-      );
-      this.fs.copy(
-        this.templatePath("gulpfile.js"),
-        this.destinationPath("gulpfile.js")
       );
       this.fs.copy(
         this.templatePath("jscsrc"),
@@ -86,13 +78,13 @@ module.exports = yeoman.generators.Base.extend({
         this.templatePath("README.md"),
         this.destinationPath("README.md")
       );
-      this.fs.copy(
-        this.templatePath("test.js"),
-        this.destinationPath("test.js")
+      this.directory(
+        this.templatePath("tests"),
+        this.destinationPath("tests")
       );
       this.directory(
-       this.templatePath("lib"), 
-       this.destinationPath("lib") 
+       this.templatePath("lib"),
+       this.destinationPath("lib")
       );
     }
   },

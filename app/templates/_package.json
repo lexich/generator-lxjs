@@ -10,31 +10,28 @@
   "description": "",
   "repository": "http://github.com/<%= props.githubuser %>/<%= props.projectname %>",
   "scripts": {
-    "test": "npm run clean && npm run jscs && npm run eslint && node_modules/.bin/gulp test",
-    "coveralls": "npm test && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && npm run clean",
-    "clean": "rm -rf ./coverage",
-    "jscs": "node_modules/.bin/jscs gulpfile.js index.js lib",
-    "eslint": "node_modules/.bin/eslint gulpfile.js index.js lib",
+    "test": "rm -rf ./coverage && npm run jscs && npm run eslint && npm run mocha",
+    "coveralls": "node_modules/.bin/istanbul cover node_modules/.bin/_mocha --report html --report lcovonly -- --require babel-core/register  tests/*_spec.js && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
+    "mocha": "node_modules/.bin/istanbul test node_modules/.bin/_mocha --report html -- --require babel-core/register tests/*_spec.js --reporter spec",
+    "jscs": "node_modules/.bin/jscs *.js lib/*.js tests/*.js",
+    "eslint": "node_modules/.bin/eslint *.js lib/*.js tests/*.js",
     "precommit": "npm test",
     "prepush": "npm test",
     "postmerge": "npm install"
   },
   "dependencies": {},
   "devDependencies": {
-    "babel-eslint": "4.1.2",
-    "chai": "^3.0.0",
+    "babel-eslint": "^4.1.3",
+    "chai": "^3.4.0",
     "coveralls": "^2.11.4",
     "eslint": "^1.3.1",
-    "eslint-config-airbnb": "0.0.8",
+    "eslint-config-airbnb": "^1.0.0",
 		"eslint-plugin-react": "^3.3.1",
-    "gulp": "^3.8.11",
-    "gulp-istanbul": "^0.10.0",
-    "gulp-mocha": "^2.0.1",
     "husky": "^0.10.1",
-    "istanbul": "0.3.19",
+    "istanbul": "0.4.0",
     "jscs": "^2.1.1",
-    "mocha": "^2.3.0",
-    "mocha-lcov-reporter": "0.0.2"
+    "mocha": "^2.3.3",
+    "mocha-lcov-reporter": "^1.0.0"
   },
   "engines": {
     "node": ">=0.12.0"
