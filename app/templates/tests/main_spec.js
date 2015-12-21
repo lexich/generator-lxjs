@@ -2,10 +2,12 @@
 /* global describe, it */
 /* jshint expr: true */
 
-var expect = require("chai").expect;
+const { expect } = require("chai");
+const Test = require("../lib");
 
 describe("test", function() {
   it("test", function() {
-    expect(true).to.be.true;
+    const test = new Test();
+    expect(test.do()).to.be.true;
   });
 });

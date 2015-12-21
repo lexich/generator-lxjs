@@ -19,15 +19,12 @@ describe("lxjs:app", function () {
       ".gitignore",
       "package.json",
       ".travis.yml",
-      "appveyor.yml",
       ".editorconfig",
       ".eslintrc",
-      "gulpfile.js",
       "index.js",
       ".jscsrc",
-      "README.md",
-      "test.js",
-      "lib/.gitkeep"
+      ".babelrc",
+      "README.md"
     ]);
   });
 });

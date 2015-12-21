@@ -71,6 +71,10 @@ module.exports = yeoman.generators.Base.extend({
         this.destinationPath(".jscsrc")
       );
       this.fs.copy(
+        this.templatePath("babelrc"),
+        this.destinationPath(".babelrc")
+      );
+      this.fs.copy(
         this.templatePath("index.js"),
         this.destinationPath("index.js")
       );
